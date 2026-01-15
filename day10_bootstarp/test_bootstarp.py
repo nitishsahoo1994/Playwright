@@ -13,11 +13,28 @@ def test_bootstarpDropDown(page:Page):
 
     page.locator("//label[text()='Job Title']//parent::div//following-sibling::div//descendant::i").click()
 
-    page.get_by_role("listbox").click()
-    # options_list=page.locator("div[role='listbox'] span").all_text_contents()
+    page.wait_for_timeout(2000)
 
-    options_list=[text.strip() for text in page.locator("div[role='listbox'] span").all_text_contents()]
+
+    # options_list=page.locator("div[role='listbox'] span").all_text_contents()
+    dropDown_options=page.locator("div[role='listbox'] span")
+    count=dropDown_options.count()
+
+
+    #lis_of_job=dropDown_options.all_text_contents()
+    options_list=[text.strip() for text in dropDown_options.all_text_contents()]
     print(options_list)
 
+    # for i in range(count):
+    #     print(dropDown_options.nth(i).text_content())
 
-    page.wait_for_timeout(2000)
+    for i in range(count):
+        text=dropDown_options.nth(i).text_content()
+        if text== 'Chief Financial Officer':
+            dropDown_options.nth(i).click()
+            break
+
+
+    page.close()
+
+
