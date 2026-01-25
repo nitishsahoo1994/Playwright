@@ -25,6 +25,7 @@ def test_dropDownSolution(page:Page):
 
     name_list=name.all()
 
+    print(name_list[2].inner_text())
     for i in name_list:
         print("name in list:",i.inner_text())
 
