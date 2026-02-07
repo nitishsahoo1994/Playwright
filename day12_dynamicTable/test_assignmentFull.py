@@ -1,4 +1,5 @@
-from playwright.sync_api import Page
+from playwright.sync_api import Page, expect
+
 
 def test_assignmentFull(page:Page):
     page.goto("https://blazedemo.com/")
@@ -31,10 +32,24 @@ def test_assignmentFull(page:Page):
             break
 
 
-    page.wait_for_timeout(2000)
+
 
     page.get_by_placeholder("First Last").fill("Nitish Kumar Sahoo")
-    page.locator("#address").fill("Pruchi liuxury pg,munni reddy lauout")\
+    page.locator("#address").fill("Pruchi liuxury pg,munni reddy lauout")
+    page.locator("#city").fill("Bangalore")
+    page.locator("#state").fill("karnataka")
+    page.locator("#zipCode").fill("759103")
+    page.locator("#cardType").select_option(label='American Express')
+    page.locator("#creditCardNumber").fill("1234567891234")
+    page.locator("#creditCardMonth").fill("10")
+    page.locator("#creditCardYear").fill("2030")
+    page.locator("#nameOnCard").fill("Nitish Kumar Sahoo")
+    rememberBox=page.locator("#rememberMe")
+    expect(rememberBox).not_to_be_checked()
+    rememberBox.check()
+    page.locator("input[value='Purchase Flight']").click()
+    page.wait_for_timeout(2000)
+
 
 
 
