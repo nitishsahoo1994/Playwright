@@ -9,7 +9,8 @@ def is_future_month(month_name, year):
 def select_date(page,target_year,target_month,target_date,is_future):
     # select month and year
     while True:
-        current_month=page.locator(".ui-datepicker-month").inner_text()
+        #current_month=page.locator(".ui-datepicker-month").inner_text()
+        current_month=page.locator(".ui-datepicker-month").text_content()   #we can use both inner_text and text_content but text_content is better as it will give the text even if there are some hidden elements
         current_year=page.locator(".ui-datepicker-year").inner_text()
 
         if current_month==target_month and current_year==target_year:

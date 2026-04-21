@@ -1,16 +1,24 @@
 
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page, expect, Browser
 
 
 def test_solution_dynamicTable(page:Page):
     page.goto("https://testautomationpractice.blogspot.com/")
 
-    rows = page.locator("table#taskTable tbody tr").all()
-    cpu_load=""
-    for row in rows:
-        process_name = row.locator("td").nth(0).inner_text()
-        if process_name == "Chrome":
-            cpu_load = row.locator("td", has_text="%").inner_text()
-            break
+    table=page.locator("table[name='BookTable']  tbody")
 
-    expect(page.locator("strong.chrome-cpu")).to_contain_text(cpu_load)
+    rows=table.locator("tr")
+    expect(rows).to_have_count(7)
+    print("no of rows are: ",rows.count())
+
+    columns=rows.locator("th")
+    expect(columns).to_have_count(4)
+    print("no of col are: ",columns.count())
+
+
+    # read all data from 2nd row
+    second_row=rows.nth(1).locator("td")
+    print(second_row.all_inner_texts())
+
+
+

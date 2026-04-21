@@ -14,9 +14,9 @@ def select_checkInDate(page,target_year,target_month,target_date):
 
     #select date
     table_body=page.locator("table[role='grid'] tbody")
-    dates_text=table_body.nth(0).locator("td").all()
+    dates_data=table_body.nth(0).locator("td").all()
 
-    for dt in dates_text:
+    for dt in dates_data:
         if dt.inner_text()==target_date:
             dt.click()
             break

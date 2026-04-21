@@ -5,7 +5,6 @@ def test_verifyPageUrl(page: Page):
     page.goto("http://www.automationpractice.pl/index.php")
     expect(page).to_have_url("http://www.automationpractice.pl/index.php")
 
-
 def test_verifyTitle(page: Page):
     page.goto("http://www.automationpractice.pl/index.php")
     pageTitle = page.title()
