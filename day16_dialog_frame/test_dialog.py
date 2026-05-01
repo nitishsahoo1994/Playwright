@@ -38,6 +38,8 @@ def test_prompt_dialog(page:Page):
     page.goto("https://testautomationpractice.blogspot.com/")
 
     page.on("dialog",lambda dialog:dialog.accept('Nitish'))
+    print("URL of that page is:",page.url)
+    print("Title of that page is:",page.title())
 
     page.locator("#promptBtn").click()
     print(page.locator("#demo").inner_text())
