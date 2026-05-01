@@ -46,3 +46,7 @@
 
 
 
+#reverse list
+mylist=[4,2,6,5,9,8,3,1]
+mylist.reverse()
+print(mylist)
