@@ -10,6 +10,8 @@ def test_dropDowntest(page:Page):
 
 
     country_drop.select_option(label="Brazil")
+    # country_drop.select_option(index=)
+    # country_drop.select_option(value=)
 
     dropdown_options=page.locator("#country>option")
     #list all options from dropdown
