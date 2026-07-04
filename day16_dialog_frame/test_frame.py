@@ -7,3 +7,10 @@ def test_frames(page: Page):
 
     frames=page.frames
     print("Number of frames on a page:", len(frames))  # 7
+
+    #frame1=page.frame_locator("")
+    frame1=page.frame(url="")
+
+    frame1.locator("")
+
+

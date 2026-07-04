@@ -13,7 +13,7 @@ def test_dropDowntest(page:Page):
 
     dropdown_options=page.locator("#country>option")
     #list all options from dropdown
-    for text in dropdown_options.all_text_contents():
+    for text in dropdown_options.all_inner_texts():
         print(text.strip())
 
     #no of options in dropdown
