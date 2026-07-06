@@ -1,13 +1,18 @@
+import csv
+
 import pytest
 from playwright.sync_api import Playwright, expect
 import  json
 
-with open('testData/loginData.json','r') as file:
-    login_data=json.load(file)
 
-@pytest.mark.parametrize("email,password,validity",[
-    (data['email'],data['password'],data['validity']) for data in login_data
-])
+login_data=[]
+csvfile=open('testData/data.csv',newline='',encoding='utf-8')
+reader=csv.DictReader(csvfile)
+
+for row in reader:
+    login_data.append((row['email'],row['password'],row['validity']))
+
+@pytest.mark.parametrize("email,password,validity",login_data)
 def test_dd_login_json(email,password,validity,playwright:Playwright):
     browser=playwright.chromium.launch(headless=False)
     context=browser.new_context(viewport={"width": 1920, "height": 1080})
