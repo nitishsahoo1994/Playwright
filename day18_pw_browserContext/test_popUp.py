@@ -22,7 +22,7 @@
 #     print("total no of popup/pages are:",len(all_popups))
 #     page.close()
 
-
+#approach2
 from playwright.sync_api import Playwright, expect
 
 
@@ -55,3 +55,9 @@ def test_popUps(playwright: Playwright):
     popup.close()
     page.close()
     browser.close()
+
+
+
+#approach3
+
+

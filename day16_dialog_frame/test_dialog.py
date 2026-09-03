@@ -23,7 +23,7 @@ def test_confirmation_dialog(page:Page):
     page.goto("https://testautomationpractice.blogspot.com/")
 
     #page.on("dialog",lambda dialog:dialog.accept()) #click on ok
-    page.on("dialog",lambda dialog:dialog.dismiss())
+    page.on("dialog", lambda dialog:dialog.dismiss())
 
     page.locator("#confirmBtn").click()
     page.wait_for_timeout(3000)
