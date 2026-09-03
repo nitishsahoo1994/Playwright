@@ -19,7 +19,7 @@ def test_dd_items(item,playwright:Playwright):
     search_box.fill(item)
     page.wait_for_timeout(2000)
     page.keyboard.press("Enter")
-    page.wait_for_timeout(2000)
+    page.wait_for_timeout(2000 )
 
 
     #

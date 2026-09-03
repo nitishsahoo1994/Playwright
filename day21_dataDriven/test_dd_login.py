@@ -3,7 +3,7 @@ from playwright.sync_api import Playwright, expect
 import json
 
 
-
+login_test_data=[('invalidmail@gmail.com','test123','invalid')]
 
 @pytest.mark.parametrize('email_id,password,validity',login_test_data)
 def test_dd_login(email_id,password,validity,playwright:Playwright):
